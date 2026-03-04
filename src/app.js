@@ -49,7 +49,11 @@ app.get("/health", (_req, res) => {
 });
 
 // Swagger UI (same docs as the original API Gateway)
-app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+// Use separate middleware so that:
+// - GET /api/docs -> HTML page
+// - /api/docs/*   -> static assets (JS, CSS)
+app.use("/api/docs", swaggerUi.serve);
+app.get("/api/docs", swaggerUi.setup(swaggerDocument));
 
 // Auth: keep compatibility with existing frontend
 // Old flow: POST /api/employees/login -> auth-service /login
