@@ -1,8 +1,10 @@
 {
   "name": "rapid-grow-backend-admin",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
+    "start": "node src/index.js",
+    "dev:single": "nodemon src/index.js",
     "dev": "concurrently -n gateway,auth,user -c blue,magenta,green \"npm run dev --prefix api-gateway\" \"npm run dev --prefix auth-service\" \"npm run dev --prefix user-service\"",
     "dev:gateway": "npm run dev --prefix api-gateway",
     "dev:auth": "npm run dev --prefix auth-service",
