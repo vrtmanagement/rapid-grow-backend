@@ -14,7 +14,9 @@ const router = express.Router();
 router.post(
   "/",
   authenticate,
-  requireRoles(ROLES.SUPER_ADMIN, ROLES.ADMIN, ROLES.TEAM_LEAD),
+  // Allow employees to update project charters (for task status/messages),
+  // while admins and leads can also create/update.
+  requireRoles(ROLES.SUPER_ADMIN, ROLES.ADMIN, ROLES.TEAM_LEAD, ROLES.EMPLOYEE),
   upsertProjectCharter
 );
 
