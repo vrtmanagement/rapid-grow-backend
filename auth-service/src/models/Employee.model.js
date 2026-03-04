@@ -40,4 +40,8 @@ EmployeeSchema.methods.comparePassword = async function (candidatePassword) {
   return bcrypt.compare(candidatePassword, this.password);
 };
 
-module.exports = mongoose.model("Employee", EmployeeSchema);
+// Avoid OverwriteModelError when the model is compiled more than once
+const Employee =
+  mongoose.models.Employee || mongoose.model("Employee", EmployeeSchema);
+
+module.exports = Employee;

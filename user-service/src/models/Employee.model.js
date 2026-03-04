@@ -36,4 +36,8 @@ EmployeeSchema.pre("save", async function (next) {
   }
 });
 
-module.exports = mongoose.model("Employee", EmployeeSchema);
+// Avoid OverwriteModelError when the model is compiled more than once
+const Employee =
+  mongoose.models.Employee || mongoose.model("Employee", EmployeeSchema);
+
+module.exports = Employee;
