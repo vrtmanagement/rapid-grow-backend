@@ -1,0 +1,30 @@
+{
+  "name": "rapid-grow-backend-admin",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently -n gateway,auth,user -c blue,magenta,green \"npm run dev --prefix api-gateway\" \"npm run dev --prefix auth-service\" \"npm run dev --prefix user-service\"",
+    "dev:gateway": "npm run dev --prefix api-gateway",
+    "dev:auth": "npm run dev --prefix auth-service",
+    "dev:user": "npm run dev --prefix user-service",
+    "seed": "npm run seed --prefix user-service"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "Microservices: API Gateway, Auth, User",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^5.2.1",
+    "gitignore": "^0.7.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.8.0",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0",
+    "nodemon": "^3.1.14"
+  }
+}
