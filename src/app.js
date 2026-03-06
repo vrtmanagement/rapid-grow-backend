@@ -14,6 +14,7 @@ const swaggerDocument = require("../api-gateway/src/swagger");
 const authRoutes = require("../auth-service/src/routes/auth.routes");
 const employeeRoutes = require("../user-service/src/routes/employee.routes");
 const projectCharterRoutes = require("../user-service/src/routes/projectCharter.routes");
+const spacesRoutes = require("../user-service/src/routes/spaces.routes");
 const { login } = require("../auth-service/src/controllers/auth.controller");
 
 const app = express();
@@ -65,6 +66,7 @@ app.use("/api/auth", authRoutes);
 // User-service routes (employees and project charters)
 app.use("/api/employees", employeeRoutes);
 app.use("/api/project-charters", projectCharterRoutes);
+app.use("/api/spaces", spacesRoutes);
 
 // 404 handler
 app.use((req, res) => {

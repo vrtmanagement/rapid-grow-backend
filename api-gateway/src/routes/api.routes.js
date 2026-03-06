@@ -27,4 +27,40 @@ router.all("/project-charters/:projectId", (req, res) =>
   proxyToUserService(req, res, `/project-charters/${req.params.projectId}`)
 );
 
+// User: /api/spaces -> user-service /spaces
+router.all("/spaces", (req, res) => proxyToUserService(req, res, "/spaces"));
+
+// User: /api/spaces/columns -> user-service /spaces/columns
+router.all("/spaces/columns", (req, res) =>
+  proxyToUserService(req, res, "/spaces/columns")
+);
+
+// User: /api/spaces/tasks -> user-service /spaces/tasks
+router.all("/spaces/tasks", (req, res) =>
+  proxyToUserService(req, res, "/spaces/tasks")
+);
+
+// User: /api/spaces/tasks/:taskId -> user-service /spaces/tasks/:taskId
+router.all("/spaces/tasks/:taskId", (req, res) =>
+  proxyToUserService(req, res, `/spaces/tasks/${req.params.taskId}`)
+);
+
+// User: /api/spaces/tasks/:taskId/comments -> user-service /spaces/tasks/:taskId/comments
+router.all("/spaces/tasks/:taskId/comments", (req, res) =>
+  proxyToUserService(
+    req,
+    res,
+    `/spaces/tasks/${req.params.taskId}/comments`
+  )
+);
+
+// User: /api/spaces/tasks/:taskId/comments/:commentId
+router.all("/spaces/tasks/:taskId/comments/:commentId", (req, res) =>
+  proxyToUserService(
+    req,
+    res,
+    `/spaces/tasks/${req.params.taskId}/comments/${req.params.commentId}`
+  )
+);
+
 module.exports = router;

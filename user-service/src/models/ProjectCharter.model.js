@@ -44,6 +44,7 @@ const WorkspaceTaskSchema = new mongoose.Schema(
     prerequisiteId: { type: String },
     dueDate: { type: String },
     createdBy: { type: String },
+    createdByRole: { type: String },
     createdAt: { type: String, required: true },
     updatedAt: { type: String, required: true },
   },

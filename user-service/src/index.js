@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 
 const employeeRoutes = require("./routes/employee.routes");
 const projectCharterRoutes = require("./routes/projectCharter.routes");
+const spacesRoutes = require("./routes/spaces.routes");
 
 const app = express();
 const PORT = process.env.PORT || 5002;
@@ -25,6 +26,7 @@ app.get("/health", (_req, res) => {
 
 app.use("/employees", employeeRoutes);
 app.use("/project-charters", projectCharterRoutes);
+app.use("/spaces", spacesRoutes);
 
 app.use((req, res) => {
   res.status(404).json({ message: "Route not found" });
